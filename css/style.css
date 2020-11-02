@@ -184,6 +184,42 @@ ul.upperNavUl li.active{
     margin-left: 5px;
     margin-top: 2%;
 }
-.form-tournament{
+.form{
+    width: 50%;
+    margin-left: 2rem;
+}
+.form select, 
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="datetime-local"],
+.form input[type="email"] {
+    border: 1px solid #7f8c8d;
+    color:#2c3e50;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+}
+.form label {
     display: block;
+    margin-bottom: 0.5em;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-buttons{
+    margin-top: 2rem;
+}
+button, 
+input, 
+select, 
+textarea { 
+    font-family: inherit; 
+    font-size: 100%; 
+    box-sizing: border-box; 
+    padding: 0; margin: 0; 
+} 
+
+textarea { 
+    overflow: auto; 
 }
