@@ -223,3 +223,11 @@ textarea {
 textarea { 
     overflow: auto; 
 }
+
+.form-name{
+    display: block;
+    font-size: 150%;
+    margin-bottom: 4%;
+    border-bottom: 1px solid white;
+    width: 55%;
+}
