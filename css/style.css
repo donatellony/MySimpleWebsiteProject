@@ -129,7 +129,9 @@ ul.upperNavUl li.active{
 .list-actions-button-details,
 .list-actions-button-edit,
 .list-actions-button-delete,
-.button-add {
+.button-add,
+.form-button-submit,
+.form-button-cancel {
     border: none;
     border-radius: 5px;
     color: white;
@@ -154,25 +156,34 @@ ul.upperNavUl li.active{
 .list-actions-button-edit:hover {
     background-color: #f1c40f;
 }
-.list-actions-button-delete {
+.list-actions-button-delete,
+.form-button-cancel {
     background-color: #c0392b;
 }
 
-.list-actions-button-delete:hover {
+.list-actions-button-delete:hover,
+.form-button-cancel:hover {
     background-color: #e74c3c;
 }
-.button-add {
+.button-add,
+.form-button-submit,
+.form-button-cancel {
     padding: 0.5rem 1rem;
 }
-.button-add {
+.button-add,
+.form-button-submit {
     background-color: #27ae60;
 }
 
-.button-add:hover {
+.button-add:hover,
+.form-button-submit:hover {
     background-color: #2ecc71;
 }
 .button-add-container{
     display: block;
     margin-left: 5px;
     margin-top: 2%;
+}
+.form-tournament{
+    display: block;
 }

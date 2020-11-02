@@ -24,37 +24,20 @@
                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores necessitatibus, suscipit consectetur modi optio voluptatum quae vitae facere beatae! Totam minus dicta omnis ea quam.
            </div>
            <div class="middleMainBlock">
-            <table class="mainTable">
-                <thead>
-                    <tr>
-                        <th>Nazwa</th>
-                        <th>Sponsor</th>
-                        <th>Fundusz nagród</th>
-                        <th>Akcje</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>The Big Brain Cup</td>
-                        <td>PJATK</td>
-                        <td>20000</td>
-                        <td>
-                            <ul class="list-actions">
-                                <li>
-                                    <a href="" class="list-actions-button-details">Szczegóły</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-edit">Edytuj</a>
-                                </li>
-                                <li>
-                                    <a href="" class="list-actions-button-delete">Usuń</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p class="button-add-container"><a href="dodaj_nowy_turniej.html" class="button-add">Dodaj nowy turniej</a></p>
+            <form class="form-tournament">
+                    <label for="mname">Nazwa Meczu:</label>
+                    <input type="text" id="mname" name="mname"><br><br>
+                    <label for="fund">Fundusz nagród:</label>
+                    <input type="text" id="fund" name="fund"><br><br>
+                    <label for="sname">Sponsor:</label>
+                    <input type="text" id="sname" name="sname"><br><br>
+                    <laber for="date-start">Data rozpoczęcia</laber>
+                    <input type = "datetime-local" id="date-start">
+                    <laber for="date-end">Data ukończenia</laber>
+                    <input type = "datetime-local" id="date-end">
+                    <input type="submit" value="Dodaj" class="form-button-submit">
+                    <a href="lista_turniejow.html" class="form-button-cancel">Anuluj</a>
+            </form>
            </div>
            <div class="rightMainBlock">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores necessitatibus, suscipit consectetur modi optio voluptatum quae vitae facere beatae! Totam minus dicta omnis ea quam.
