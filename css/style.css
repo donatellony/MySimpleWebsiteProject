@@ -14,8 +14,6 @@ body{
     font-size: 24px;
     justify-content: flex-start;
     align-items: center;
-    /* background: repeating-linear-gradient(45deg, #c91919, #a71805 10px, #000000 10px, #111111 20px); */
-    /* background-image: url("../img/redBg.jpg"); */
     background-size: cover;
     flex-wrap: wrap;
 }
@@ -54,7 +52,7 @@ ul.upperNavUl li.active{
     display: flex;
     color:white;
     margin-top: 1%;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
 }
 .leftMainBlock{
     border-right: 1px solid #c5c5c5;
@@ -104,11 +102,16 @@ ul.upperNavUl li.active{
     /* text-align: center; */
 }
 .mainTable th{
-    background-color: rgba(167, 28, 28, 0.5);;
+    background-color: rgba(167, 28, 28, 0.5);
 }
 .mainTable td{
-    background-color: rgba(130, 130, 130, 0.4);;
+    background-color: rgba(130, 130, 130, 0.4);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
+/* .mainTable tr{
+    
+} */
 .list-actions{
     text-align: center;
     list-style-type: none;
@@ -193,14 +196,18 @@ ul.upperNavUl li.active{
 .form input[type="number"],
 .form input[type="datetime-local"],
 .form input[type="email"] {
-    border: 1px solid #7f8c8d;
-    color:#2c3e50;
+    border-bottom: 1px solid rgb(167, 28, 28);
+    background-color: rgba(130, 130, 130, 0.4);
+    color:white;
     border-radius: 5px;
     padding: 0.5rem;
     width: 100%;
 }
+#roles option{
+    background-color: rgb(130, 130, 130);
+}
 .form label {
-    display: block;
+    /* display: block; */
     margin-bottom: 0.5em;
 }
 
