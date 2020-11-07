@@ -196,13 +196,16 @@ ul.upperNavUl li.active{
 .form input[type="number"],
 .form input[type="datetime-local"],
 .form input[type="email"] {
-    border-bottom: 1px solid rgb(167, 28, 28);
     background-color: rgba(130, 130, 130, 0.4);
     color:white;
     border-radius: 5px;
     padding: 0.5rem;
     width: 100%;
 }
+.form select:required,input:required{
+    border-bottom: 1px solid rgb(167, 28, 28);
+}
+
 #roles option{
     background-color: rgb(130, 130, 130);
 }
@@ -237,4 +240,14 @@ textarea {
     margin-bottom: 4%;
     border-bottom: 1px solid white;
     width: 55%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
