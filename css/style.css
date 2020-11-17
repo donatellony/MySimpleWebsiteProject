@@ -191,7 +191,7 @@ ul.upperNavUl li.active{
     width: 50%;
     margin-left: 2rem;
 }
-.form select, 
+.form select,
 .form input[type="text"],
 .form input[type="number"],
 .form input[type="datetime-local"],
@@ -202,11 +202,13 @@ ul.upperNavUl li.active{
     padding: 0.5rem;
     width: 100%;
 }
-.form select:required,input:required{
+.form select:required,
+input:required {
     border-bottom: 1px solid rgb(167, 28, 28);
 }
 
-#roles option{
+#roles option,
+#tournaments option{
     background-color: rgb(130, 130, 130);
 }
 .form label {
