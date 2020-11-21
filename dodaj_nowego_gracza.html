@@ -29,13 +29,17 @@
             <form class="form">
                 <div class="form-group">
                     <label for="name">Pseudonim:</label>
-                    <input type="text" id="name" name="name" required><br><br>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-text">ERROR</span><br><br>
                     <label for="rating">Rating:</label>
-                    <input type="number" id="rating" name="rating" required><br><br>
+                    <input type="number" id="rating" name="rating" required>
+                    <span class = "error-text">ERROR</span><br><br>
                     <label for="coins">Ilość monet:</label>
-                    <input type="number" id="coins" name="coins" required><br><br>
+                    <input type="number" id="coins" name="coins" required>
+                    <span class="error-text">ERROR</span><br><br>
                     <label for="mail">Email:</label>
-                    <input type="text" id="mail" name="mail" required><br><br>
+                    <input type="text" id="mail" name="mail" required>
+                    <span class="error-text">ERROR</span><br><br>
                     <label for="roles">Rola:</label>
                     <select id="roles" required>
                         <option>Gracz</option>
@@ -47,6 +51,7 @@
                     <input type="submit" value="Dodaj" class="form-button-submit">
                     <a href="lista_graczy.html" class="form-button-cancel">Anuluj</a>
                 </div>
+                <span class="error-submit">ERROR</span>
             </form>
            </div>
            <div class="rightMainBlock">
@@ -56,5 +61,6 @@
     <footer id="myfooter">
         Yehor Voiko, S18917
     </footer>
+    <script src='js/validationPlayer.js'></script>
 </body>
 </html>

@@ -253,3 +253,13 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.error-text,
+.error-submit{
+    margin-left: 1%;
+    color: red;
+}
+
+.hidden{
+    display: none;
+}
