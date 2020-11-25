@@ -13,8 +13,8 @@
         <nav class="upperNav">
             <ul class="upperNavUl">
                 <li><a href="../index.html">Strona główna</a></li>
-                <li><a href="lista_graczy.html">Gracze</a></li>
-                <li class="active"><a href="lista_uczestnikow.html">Uczęstnicy</a></li>
+                <li class="active"><a href="lista_graczy.html">Gracze</a></li>
+                <li><a href="lista_uczestnikow.html">Uczęstnicy</a></li>
                 <li><a href="lista_turniejow.html">Turnieje</a></li>
             </ul>
         </nav>
@@ -24,22 +24,25 @@
                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores necessitatibus, suscipit consectetur modi optio voluptatum quae vitae facere beatae! Totam minus dicta omnis ea quam.
            </div>
            <div class="middleMainBlock">
-            <p class="form-name">Szczegóły turnieju</p>
+               <p class="form-name">Szczegóły gracza</p>
             <form class="form">
                 <div class="form-group">
-                    <label for="tournament">Wybierz turniej</label>
-                    <select id="tournament">
-                        <option value="" selected disabled hidden> --- Wybierz turniej --- </option>
-                        <option>The Big Brain Cup</option>
-                    </select>
-                    <label for="player">Wybierz gracza</label>
-                    <select id="player">
-                        <option value="" selected disabled hidden> --- Wybierz gracza --- </option>
-                        <option>X Æ A-12</option>
+                    <label for="name">Pseudonim:</label>
+                    <input type="text" id="name" name="name" readonly><br><br>
+                    <label for="rating">Rating:</label>
+                    <input type="number" id="rating" name="rating" readonly><br><br>
+                    <label for="coins">Ilość monet:</label>
+                    <input type="number" id="coins" name="coins" readonly><br><br>
+                    <label for="mail">Email:</label>
+                    <input type="text" id="mail" name="mail" readonly><br><br>
+                    <label for="roles">Rola:</label>
+                    <select id="roles" disabled>
+                        <option>Gracz</option>
+                        <option>VIP-Gracz</option>
+                        <option>Moderator</option>
                     </select>
                 </div>
             </form>
-            
            </div>
            <div class="rightMainBlock">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores necessitatibus, suscipit consectetur modi optio voluptatum quae vitae facere beatae! Totam minus dicta omnis ea quam.
@@ -50,14 +53,3 @@
     </footer>
 </body>
 </html>
-<!--
-<h2>Gracze</h2>
-<thead>
-    <tr>
-        <th>Imię</th>
-        <th>Nazwisko</th>
-        <th>E-mail</th>
-        <th>Akcje</th>
-    </tr>
-</thead>
--->

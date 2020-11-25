@@ -207,8 +207,7 @@ input:required {
     border-bottom: 1px solid rgb(167, 28, 28);
 }
 
-#roles option,
-#tournaments option{
+option{
     background-color: rgb(130, 130, 130);
 }
 .form label {

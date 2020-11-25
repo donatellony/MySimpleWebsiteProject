@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberWolf</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script type="application/javascript" src="../js/validationCommon.js"></script>
 </head>
 <body>
     <header class="upperNav">
@@ -24,28 +25,33 @@
                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores necessitatibus, suscipit consectetur modi optio voluptatum quae vitae facere beatae! Totam minus dicta omnis ea quam.
            </div>
            <div class="middleMainBlock">
-               <p class="form-name">Szczegóły gracza</p>
+               <p class="form-name">Dodanie nowego gracza</p>
             <form class="form">
                 <div class="form-group">
                     <label for="name">Pseudonim:</label>
-                    <input type="text" id="name" name="name" readonly><br><br>
+                    <input type="text" id="name" name="name" required>
+                    <span class="error-text">ERROR</span><br>
                     <label for="rating">Rating:</label>
-                    <input type="number" id="rating" name="rating" readonly><br><br>
+                    <input type="number" id="rating" name="rating" required>
+                    <span class = "error-text">ERROR</span><br>
                     <label for="coins">Ilość monet:</label>
-                    <input type="number" id="coins" name="coins" readonly><br><br>
+                    <input type="number" id="coins" name="coins" required>
+                    <span class="error-text">ERROR</span><br>
                     <label for="mail">Email:</label>
-                    <input type="text" id="mail" name="mail" readonly><br><br>
+                    <input type="text" id="mail" name="mail" required>
+                    <span class="error-text">ERROR</span><br>
                     <label for="roles">Rola:</label>
-                    <select id="roles" disabled>
+                    <select id="roles" required>
                         <option>Gracz</option>
                         <option>VIP-Gracz</option>
                         <option>Moderator</option>
                     </select>
                 </div>
-                <!-- <div class="form-buttons">
+                <div class="form-buttons">
                     <input type="submit" value="Dodaj" class="form-button-submit">
                     <a href="lista_graczy.html" class="form-button-cancel">Anuluj</a>
-                </div> -->
+                </div>
+                <span class="error-submit">ERROR</span>
             </form>
            </div>
            <div class="rightMainBlock">
@@ -55,5 +61,6 @@
     <footer id="myfooter">
         Yehor Voiko, S18917
     </footer>
+    <script src='../js/validationPlayer.js'></script>
 </body>
 </html>

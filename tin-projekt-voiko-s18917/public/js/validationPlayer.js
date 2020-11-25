@@ -1,9 +1,11 @@
+import * as validationCommon from './validationCommon';
+
 const inputs = document.querySelectorAll("input:not(.form-button-submit)"),
       errors = document.querySelectorAll(".error-text"),
       mainErrorText = document.querySelector(".error-submit"),
       submitBtn = document.querySelector('.form-button-submit');
 console.log(inputs);
-resetErrors(inputs, errors, mainErrorText);
+validationCommon.resetErrors(inputs, errors, mainErrorText);
 
 function validateEmpty(input, error){
     if(!input.value.trim()){
@@ -53,7 +55,7 @@ function validateEmail(emailInput, error){
 
 submitBtn.addEventListener('click',(event)=>{
     event.preventDefault();
-    resetErrors(inputs, errors, mainErrorText);
+    validationCommon.resetErrors(inputs, errors, mainErrorText);
     const results = [
         validatePseudonim(inputs[0], errors[0]),
         validateNumbers(inputs[1],errors[1]),

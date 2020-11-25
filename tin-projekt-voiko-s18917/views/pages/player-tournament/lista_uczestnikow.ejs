@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CyberWolf</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script type="application/javascript" src="../js/validationCommon.js"></script>
 </head>
 <body>
     <header class="upperNav">
@@ -15,8 +14,8 @@
             <ul class="upperNavUl">
                 <li><a href="../index.html">Strona główna</a></li>
                 <li><a href="lista_graczy.html">Gracze</a></li>
-                <li><a href="lista_uczestnikow.html">Uczęstnicy</a></li>
-                <li class="active"><a href="lista_turniejow.html">Turnieje</a></li>
+                <li class="active"><a href="lista_uczestnikow.html">Uczęstnicy</a></li>
+                <li><a href="lista_turniejow.html">Turnieje</a></li>
             </ul>
         </nav>
     </header>
@@ -25,25 +24,29 @@
                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores necessitatibus, suscipit consectetur modi optio voluptatum quae vitae facere beatae! Totam minus dicta omnis ea quam.
            </div>
            <div class="middleMainBlock">
-               <p class="form-name">Dodanie nowego turnieju</p>
+            <p class="form-name">Wyświetl uczęstnika turnieju</p>
             <form class="form">
                 <div class="form-group">
-                    <label for="mname">Nazwa meczu:</label>
-                    <input type="text" id="mname" name="mname" required><br><br>
-                    <label for="fund">Fundusz nagród:</label>
-                    <input type="number" id="fund" name="fund" required><br><br>
-                    <label for="sname">Sponsor:</label>
-                    <input type="text" id="sname" name="sname"><br><br>
-                    <laber for="date-start">Data rozpoczęcia</laber>
-                    <input type = "datetime-local" id="date-start" required>
-                    <laber for="date-end">Data ukończenia</laber>
-                    <input type = "datetime-local" id="date-end">
-                </div>
-                <div class="form-buttons">
-                    <input type="submit" value="Dodaj" class="form-button-submit">
-                    <a href="lista_turniejow.html" class="form-button-cancel">Anuluj</a>
+                    <label for="tournament">Turniej:</label>
+                    <select id="tournament" required>
+                        <option value="" selected disabled hidden> --- Wybierz turniej --- </option>
+                        <option>The Big Brain Cup</option>
+                    </select>
+                    <br><br>
+                    <label for="player">Gracz:</label>
+                    <select id="player" required>
+                        <option value="" selected disabled hidden> --- Wybierz gracza --- </option>
+                        <option>X Æ A-12</option>
+                    </select>
+                    <br><br>
+                    <label for="name">Miejsce:</label>
+                    <input type="number" id="name" name="name">
+                    <br><br>
+                    <label for="name">Wygrano monet:</label>
+                    <input type="number" id="name" name="name">
                 </div>
             </form>
+            
            </div>
            <div class="rightMainBlock">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores necessitatibus, suscipit consectetur modi optio voluptatum quae vitae facere beatae! Totam minus dicta omnis ea quam.
@@ -54,3 +57,14 @@
     </footer>
 </body>
 </html>
+<!--
+<h2>Gracze</h2>
+<thead>
+    <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>E-mail</th>
+        <th>Akcje</th>
+    </tr>
+</thead>
+-->
