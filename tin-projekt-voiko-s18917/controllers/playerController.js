@@ -1,11 +1,15 @@
 exports.showPlayerList = (req, res, next) => {
-    res.render('pages/employee/list', {});
+    res.render('pages/player/list', { navLocation: 'player' });
 };
 
 exports.showAddPlayerForm = (req, res, next) => {
-    res.render('pages/employee/form', {});
+    res.render('pages/player/form', { navLocation: 'player' });
 };
 
 exports.showPlayerDetails = (req, res, next) => {
-    res.render('pages/employee/details', {});
+    res.render('pages/player/details', { navLocation: 'player' });
+};
+
+exports.showPlayerEdit = (req, res, next) => {
+    res.render('pages/player/edit', { navLocation: 'player' });
 };

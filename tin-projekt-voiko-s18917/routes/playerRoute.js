@@ -3,7 +3,8 @@ const router = express.Router();
 const employeeControler = require('../controllers/playerController');
 
 router.get('/', employeeControler.showPlayerList);
-router.get('/add', employeeControler.showAddPlayerForm);
-router.get('/details/:playerId', employeeControler.showPlayerDetails);
+router.get('/form', employeeControler.showAddPlayerForm);
+router.get('/details', employeeControler.showPlayerDetails);
+router.get('/edit', employeeControler.showPlayerEdit);
 
 module.exports = router;
