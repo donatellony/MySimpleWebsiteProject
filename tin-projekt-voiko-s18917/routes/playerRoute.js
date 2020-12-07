@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const employeeControler = require('../controllers/playerController');
+const playerController = require('../controllers/playerController');
 
-router.get('/', employeeControler.showPlayerList);
-router.get('/form', employeeControler.showAddPlayerForm);
-router.get('/details', employeeControler.showPlayerDetails);
-router.get('/edit', employeeControler.showPlayerEdit);
+router.get('/', playerController.showPlayerList);
+router.get('/form', playerController.showAddPlayerForm);
+router.get('/details', playerController.showPlayerDetails);
+router.get('/edit', playerController.showPlayerEdit);
 
 module.exports = router;

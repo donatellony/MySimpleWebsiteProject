@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var playerRouter = require('./routes/playerRoute');
+var tournamentRouter = require('./routes/tournamentRoute');
+var participationRouter = require('./routes/participationRoute');
 
 var app = express();
 
@@ -21,6 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/players', playerRouter);
+app.use('/tournaments', tournamentRouter);
+app.use('/participations', participationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

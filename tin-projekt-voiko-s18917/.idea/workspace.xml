@@ -20,26 +20,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae19c379-4a18-48ac-99a7-75b684c4b75a" name="Default Changelist" comment="Trying to move everything to Node.js... Once more">
-      <change afterPath="$PROJECT_DIR$/controllers/participationController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/sequelize/schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/sequelize/Participation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/sequelize/Player.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/sequelize/Tournament.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/participationRoute.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/tournamentRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/player-tournamentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/details.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/playerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/playerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/tournamentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/tournamentController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/playerRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/playerRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/fragments/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/fragments/header.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player-tournament/dodaj_nowego_uczestnika.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/edit.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player-tournament/edytuj_uczestnikow.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player-tournament/lista_uczestnikow.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/list.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player-tournament/szczegoly_uczestnikow.ejs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player/dodaj_nowego_gracza.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player/edytuj_gracza.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/edit.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player/lista_graczy.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/list.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player/szczegoly_gracz.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/details.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/tournament/dodaj_nowy_turniej.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/tournament/edytuj_turniej.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/edit.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/tournament/lista_turniejow.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/list.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/tournament/szczegoly_turniej.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/details.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/participation/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/details.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/participation/edit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/edit.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/participation/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/participation/list.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/list.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/player/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/details.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/player/edit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/edit.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/player/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/player/list.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/list.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/tournament/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/details.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/tournament/edit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/edit.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/tournament/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/tournament/list.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/list.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +72,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -82,7 +90,8 @@
       <option name="presentableId" value="Default" />
       <updated>1606298518146</updated>
       <workItem from="1606298520437" duration="15704000" />
-      <workItem from="1606818226508" duration="919000" />
+      <workItem from="1606818226508" duration="9444000" />
+      <workItem from="1606927816881" duration="8094000" />
     </task>
     <task id="LOCAL-00001" summary="Trying to move everything to Node.js... Once more">
       <created>1606317189228</created>
@@ -110,6 +119,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Trying to move everything to Node.js... Once more" />
     <option name="LAST_COMMIT_MESSAGE" value="Trying to move everything to Node.js... Once more" />
   </component>

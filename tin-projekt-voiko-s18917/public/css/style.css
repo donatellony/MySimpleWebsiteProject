@@ -99,7 +99,7 @@ ul.upperNavUl li.active{
 
 .mainTable th, td{
     border: 1px solid black;
-    /* text-align: center; */
+    text-align: center;
 }
 .mainTable th{
     background-color: rgba(167, 28, 28, 0.5);

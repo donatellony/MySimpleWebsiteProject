@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberWolf</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header class="upperNav">
-    <img src="../img/CyberwolfLogo.png" alt="CyberWolf Logo" width="150px" height="150px">
-    <h1><span style="color: white;">Cyber</span><span style="color: red;">Wolf</span></h1>
-    <nav class="upperNav">
-        <ul class="upperNavUl">
-            <li><a href="../index.html">Strona główna</a></li>
-            <li class="active"><a href="lista_graczy.html">Gracze</a></li>
-            <li><a href="lista_uczestnikow.html">Uczęstnicy</a></li>
-            <li><a href="lista_turniejow.html">Turnieje</a></li>
-        </ul>
-    </nav>
-</header>
+<%- include('../../fragments/header.ejs') %>
+
 <main class="mainParent">
     <div class="leftMainBlock">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores
@@ -44,6 +25,24 @@
                     <option>Moderator</option>
                 </select>
             </div>
+            <p class="form-name">Udział w meczach</p>
+            <table class="mainTable">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Miejsce</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>The Big Brain Cup</td>
+                    <td>4</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="form-buttons">
+                <a href="../players" class="form-button-cancel">Powróć</a>
+            </div>
         </form>
     </div>
     <div class="rightMainBlock">
@@ -52,8 +51,4 @@
         quam.
     </div>
 </main>
-<footer id="myfooter">
-    Yehor Voiko, S18917
-</footer>
-</body>
-</html>
+<%- include('../../fragments/footer.ejs') %>
