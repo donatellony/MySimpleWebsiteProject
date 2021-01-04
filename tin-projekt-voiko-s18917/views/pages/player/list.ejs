@@ -16,23 +16,25 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>X Æ A-12</td>
-                <td>8000</td>
-                <td>
-                    <ul class="list-actions">
-                        <li>
-                            <a href="players/details" class="list-actions-button-details">Szczegóły</a>
-                        </li>
-                        <li>
-                            <a href="players/edit" class="list-actions-button-edit">Edytuj</a>
-                        </li>
-                        <li>
-                            <a href="" class="list-actions-button-delete">Usuń</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
+            <% for (let pl of pls){ %>
+                <tr>
+                    <td><%= pl.name %></td>
+                    <td><%= pl.rating %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="players/details/<%=pl._id%>" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="players/edit/<%=pl._id%>" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="players/delete/<%=pl._id%>" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            <% } %>
             </tbody>
         </table>
         <p class="button-add-container"><a href="players/form" class="button-add">Dodaj nowego gracza</a>

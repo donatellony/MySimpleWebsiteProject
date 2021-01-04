@@ -13,11 +13,11 @@ const Player = sequelize.define('Player', {
         allowNull: false
     },
     rating: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     coins: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         allowNull: false,
     },
     email: {
@@ -26,7 +26,7 @@ const Player = sequelize.define('Player', {
         unique: true
     },
     role: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.STRING,
         allowNull: false
     }
 

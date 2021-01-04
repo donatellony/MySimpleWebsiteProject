@@ -1,5 +1,10 @@
+const TournamentRepository = require('../repository/sequelize/TournamentRepository');
+
 exports.showTournamentList = (req, res, next) => {
-    res.render('pages/tournament/list', { navLocation: 'tournament' });
+    TournamentRepository.getTournaments()
+        .then(trnt => {
+            res.render('pages/tournament/list', { trnt: trnt,navLocation: 'tournament' });
+        });
 };
 
 exports.showAddTournamentForm = (req, res, next) => {

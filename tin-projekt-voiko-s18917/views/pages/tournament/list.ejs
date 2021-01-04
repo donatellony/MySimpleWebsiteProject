@@ -17,24 +17,26 @@
             </tr>
             </thead>
             <tbody>
+            <% for (tr of trnt){ %>
             <tr>
-                <td>The Big Brain Cup</td>
-                <td>PJATK</td>
-                <td>20000</td>
+                <td><%=tr.name %></td>
+                <td><%=tr.sponsor ? tr.sponsor : "-"%></td>
+                <td><%=tr.fund%></td>
                 <td>
                     <ul class="list-actions">
                         <li>
-                            <a href="tournaments/details" class="list-actions-button-details">Szczegóły</a>
+                            <a href="tournaments/details/<%=tr._id%>" class="list-actions-button-details">Szczegóły</a>
                         </li>
                         <li>
-                            <a href="tournaments/edit" class="list-actions-button-edit">Edytuj</a>
+                            <a href="tournaments/edit/<%=tr._id%>" class="list-actions-button-edit">Edytuj</a>
                         </li>
                         <li>
-                            <a href="" class="list-actions-button-delete">Usuń</a>
+                            <a href="tournaments/delete/<%=tr._id%>" class="list-actions-button-delete">Usuń</a>
                         </li>
                     </ul>
                 </td>
             </tr>
+            <%}%>
             </tbody>
         </table>
         <p class="button-add-container"><a href="tournaments/form" class="button-add">Dodaj nowy turniej</a></p>

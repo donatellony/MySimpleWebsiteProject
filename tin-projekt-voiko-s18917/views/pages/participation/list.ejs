@@ -17,23 +17,25 @@
                 </tr>
                 </thead>
                 <tbody>
+                <% for (prtsp of prtsps){ %>
                 <tr>
-                    <td>X Æ A-12</td>
-                    <td>The Big Brain Cup</td>
+                    <td><%=prtsp.player.name%></td>
+                    <td><%=prtsp.tournament.name%></td>
                     <td>
                         <ul class="list-actions">
                             <li>
-                                <a href="participations/details" class="list-actions-button-details">Szczegóły</a>
+                                <a href="participations/details/tournaments/<%=prtsp._id%>" class="list-actions-button-details">Szczegóły</a>
                             </li>
                             <li>
-                                <a href="participations/edit" class="list-actions-button-edit">Edytuj</a>
+                                <a href="participations/edit/tournaments/<%=prtsp._id%>" class="list-actions-button-edit">Edytuj</a>
                             </li>
                             <li>
-                                <a href="" class="list-actions-button-delete">Usuń</a>
+                                <a href="participations/delete/tournaments/<%=prtsp._id%>" class="list-actions-button-delete">Usuń</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
+                <%}%>
                 </tbody>
             </table>
             <p class="button-add-container"><a href="participations/form" class="button-add">Dodaj nowe uczęstnictwo</a>

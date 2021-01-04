@@ -16,16 +16,16 @@ const Tournament = sequelize.define('Tournament', {
         type: Sequelize.STRING,
         allowNull: true
     },
-    start_date: {
+    startDate: {
         type: Sequelize.DATE,
         allowNull: false
     },
-    end_date: {
+    endDate: {
         type: Sequelize.DATE,
         allowNull: true
     },
     fund: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 });

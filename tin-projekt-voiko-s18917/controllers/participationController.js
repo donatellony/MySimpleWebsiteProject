@@ -1,15 +1,33 @@
+const ParticipationRepository = require("../repository/sequelize/ParticipationRepository");
+
 exports.showParticipationList = (req, res, next) => {
-    res.render('pages/participation/list', { navLocation: 'participation' });
+    ParticipationRepository.getParticipations()
+        .then(prtsps => {
+            res.render('pages/participation/list', {prtsps: prtsps,navLocation: 'participation'});
+        });
 };
 
 exports.showAddParticipationForm = (req, res, next) => {
-    res.render('pages/participation/form', { navLocation: 'participation' });
+    res.render('pages/participation/form', {navLocation: 'participation'});
 };
 
+// exports.showParticipationDetails = (req, res, next) => {
+//     res.render('pages/participation/details', {navLocation: 'participation'});
+// };
 exports.showParticipationDetails = (req, res, next) => {
-    res.render('pages/participation/details', { navLocation: 'participation' });
+    const participationId = req.params.participationId;
+    ParticipationRepository.getParticipationById(participationId)
+        .then(prtsp => {
+            res.render('pages/player/form', {
+                prtsp: prtsp,
+                formMode: 'showDetails',
+                pageTitle: 'Szczegóły uczęstnictwa',
+                formAction: '',
+                navLocation: 'participation'
+            });
+        });
 };
 
 exports.showParticipationEdit = (req, res, next) => {
-    res.render('pages/participation/edit', { navLocation: 'participation' });
+    res.render('pages/participation/edit', {navLocation: 'participation'});
 };

@@ -4,7 +4,7 @@ const playerController = require('../controllers/playerController');
 
 router.get('/', playerController.showPlayerList);
 router.get('/form', playerController.showAddPlayerForm);
-router.get('/details', playerController.showPlayerDetails);
-router.get('/edit', playerController.showPlayerEdit);
+router.get('/details/:playerId', playerController.showPlayerDetails);
+router.get('/edit/:playerId', playerController.showPlayerEdit);
 
 module.exports = router;
