@@ -20,7 +20,11 @@ exports.getParticipations = () => {
 
 
 exports.getParticipationById = (playerId, tournamentId) => {
-    return Participation.findByPk({playerId, tournamentId}, {
+    return Participation.findOne({playerId, tournamentId}, {
+        where: {
+            player_id: playerId,
+            tournament_id: tournamentId
+        },
         include: [
             {
                 model: Player,

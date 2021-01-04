@@ -15,8 +15,9 @@ exports.showAddParticipationForm = (req, res, next) => {
 //     res.render('pages/participation/details', {navLocation: 'participation'});
 // };
 exports.showParticipationDetails = (req, res, next) => {
-    const participationId = req.params.participationId;
-    ParticipationRepository.getParticipationById(participationId)
+    const playerId = req.params.playerId;
+    const tournamentId = req.params.tournamentId;
+    ParticipationRepository.getParticipationById(playerId,tournamentId)
         .then(prtsp => {
             res.render('pages/player/form', {
                 prtsp: prtsp,
