@@ -7,34 +7,36 @@
         quam.
     </div>
     <div class="middleMainBlock">
-        <p class="form-name">Dodanie nowego gracza</p>
-        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <p class="form-name"><%=pageTitle%></p>
+        <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();">
             <div class="form-group">
                 <input type="hidden" name="_id" value="<%= player._id %>">
                 <label for="name">Pseudonim:</label>
                 <input type="text" id="name" name="name" value="<%= player.name %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text">ERROR</span><br>
+                <span class="error-text"></span><br>
                 <label for="rating">Rating:</label>
                 <input type="number" id="rating" name="rating" value="<%= player.rating %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text">ERROR</span><br>
+                <span class="error-text"></span><br>
                 <label for="coins">Ilość monet:</label>
                 <input type="number" id="coins" name="coins" value="<%= player.coins %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text">ERROR</span><br>
+                <span class="error-text"></span><br>
                 <label for="mail">Email:</label>
-                <input type="text" id="mail" name="mail" value="<%= player.email %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text">ERROR</span><br>
-                <label for="roles">Rola:</label>
-                <select id="roles" required>
-                    <option>Gracz</option>
-                    <option>VIP-Gracz</option>
-                    <option>Moderator</option>
+                <input type="text" id="email" name="email" value="<%= player.email %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
+                <span class="error-text"></span><br>
+                <label for="role">Rola:</label>
+                <%let selected = false;%>
+                <select id="role" name="role" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                    <option value="" selected disabled hidden>--- Wybierz rolę ---</option>
+                    <option value="gracz" <%=player.role === 'gracz' ? 'selected' : ''%>>Gracz</option>
+                    <option value="vip-gracz" <%=player.role === 'vip-gracz' ? 'selected' : ''%>>VIP-Gracz</option>
+                    <option value="moderator" <%=player.role === 'moderator' ? 'selected' : ''%>>Moderator</option>
                 </select>
             </div>
             <div class="form-buttons">
                 <input type="submit" value="Dodaj" class="form-button-submit">
-                <a href="../../players" class="form-button-cancel">Anuluj</a>
+                <a href="/players" class="form-button-cancel">Anuluj</a>
             </div>
-            <span class="error-submit">ERROR</span>
+            <span class="error-submit"></span>
         </form>
     </div>
     <div class="rightMainBlock">

@@ -7,23 +7,23 @@
         quam.
     </div>
     <div class="middleMainBlock">
-        <p class="form-name">Dodanie nowego turnieju</p>
-        <form class="form">
+        <p class="form-name"><%=pageTitle%></p>
+        <form class="form" method="post" action="<%= formAction %>">
             <div class="form-group">
-                <label for="mname">Nazwa meczu:</label>
-                <input type="text" id="mname" name="mname" required><br><br>
+                <label for="name">Nazwa meczu:</label>
+                <input type="text" id="name" name="name" required><br><br>
                 <label for="fund">Fundusz nagród:</label>
                 <input type="number" id="fund" name="fund" required><br><br>
-                <label for="sname">Sponsor:</label>
-                <input type="text" id="sname" name="sname"><br><br>
-                <laber for="date-start">Data rozpoczęcia</laber>
-                <input type="datetime-local" id="date-start" required><br><br>
-                <laber for="date-end">Data ukończenia</laber>
-                <input type="datetime-local" id="date-end">
+                <label for="sponsor">Sponsor:</label>
+                <input type="text" id="sponsor" name="sponsor"><br><br>
+                <label for="startDate">Data rozpoczęcia</label>
+                <input type="datetime-local" id="startDate" required><br><br>
+                <label for="endDate">Data ukończenia</label>
+                <input type="datetime-local" id="endDate">
             </div>
             <div class="form-buttons">
                 <input type="submit" value="Dodaj" class="form-button-submit">
-                <a href="../tournaments" class="form-button-cancel">Anuluj</a>
+                <a href="/tournaments" class="form-button-cancel">Anuluj</a>
             </div>
         </form>
     </div>

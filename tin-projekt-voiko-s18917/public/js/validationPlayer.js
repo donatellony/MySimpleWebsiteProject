@@ -20,10 +20,6 @@ function validatePseudonim(pseudonimInput, error) {
     error.innerText = "";
     return true;
 }
-
-
-
-
 function validateForm() {
     resetErrors(inputs, errors, mainErrorText);
     const results = [
@@ -36,7 +32,6 @@ function validateForm() {
             if (!e) {
                 mainErrorText.innerText = "Formularz zawiera błędy";
                 return false;
-                // event.target.disabled = true;
             }
         }
     );

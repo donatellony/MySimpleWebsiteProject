@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var playerRouter = require('./routes/playerRoute');
 var tournamentRouter = require('./routes/tournamentRoute');
 var participationRouter = require('./routes/participationRoute');
+// var playerApiRouter = require('./routes/api/PlayerApiRoute');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use('/', indexRouter);
 app.use('/players', playerRouter);
 app.use('/tournaments', tournamentRouter);
 app.use('/participations', participationRouter);
+// app.use('/api/players', playerApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -3,7 +3,7 @@ const PlayerRepository = require('../repository/sequelize/PlayerRepository');
 exports.showPlayerList = (req, res, next) => {
     PlayerRepository.getPlayers()
         .then(pls => {
-            res.render('pages/player/list', { pls: pls, navLocation: 'player' });
+            res.render('pages/player/list', {pls: pls, navLocation: 'player'});
         });
 };
 
@@ -47,3 +47,27 @@ exports.showPlayerEdit = (req, res, next) => {
         });
 };
 
+exports.addPlayer = (req, res, next) => {
+    const playerData = {...req.body};
+    PlayerRepository.createPlayer(playerData)
+        .then(result => {
+            res.redirect('/players');
+        });
+};
+
+exports.updatePlayer = (req, res, next) => {
+    const playerId = req.body._id;
+    const playerData = {...req.body};
+    PlayerRepository.updatePlayer(playerId, playerData)
+        .then(result => {
+            res.redirect('/players');
+        });
+};
+
+exports.deletePlayer = (req, res, next) => {
+    const playerId = req.params.playerId;
+    PlayerRepository.deletePlayer(playerId)
+        .then(() => {
+            res.redirect('/players');
+        });
+};

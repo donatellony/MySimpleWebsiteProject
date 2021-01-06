@@ -26,9 +26,9 @@ module.exports = () => {
         .then(players => {
                 if (!players || players.length === 0) {
                     return Player.bulkCreate([
-                        {name: 'Jan', rating: 1962, coins: 415, email: 'jan.kowalski@acme.com', role: 'Player'},
-                        {name: 'Sausage', rating: 2534, coins: 300, email: 'sauuusage123@acme.com', role: 'Player'},
-                        {name: 'Yehor', rating: 2077, coins: 300, email: 's18917@pjwstk.edu.pl', role: 'Admin'},
+                        {name: 'Jan', rating: 1962, coins: 415, email: 'jan.kowalski@acme.com', role: 'gracz'},
+                        {name: 'Sausage', rating: 2534, coins: 300, email: 'sauuusage123@acme.com', role: 'gracz'},
+                        {name: 'Yehor', rating: 2077, coins: 300, email: 's18917@pjwstk.edu.pl', role: 'moderator'},
                     ]).then(() => {
                         return Player.findAll();
                     });
