@@ -20,35 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ae19c379-4a18-48ac-99a7-75b684c4b75a" name="Default Changelist" comment="Adding Backend using sequelize">
-      <change afterPath="$PROJECT_DIR$/api/ParticipationAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/PlayerAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/TournamentAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/api/ParticipationApiController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/api/PlayerApiController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/api/TournamentApiController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api/ParticipationApiRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api/PlayerApiRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/api/TournamentApiRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/sequelize/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/sequelize/init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/api/ParticipationApiController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationParticipation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/api/PlayerApiController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/api/TournamentApiController.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/participationController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/participationController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/playerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/playerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sequelize/Participation.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/sequelize/Participation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/tournamentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/tournamentController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/validationCommon.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationCommon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/validationPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationPlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/validationTournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationTournament.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repository/sequelize/ParticipationRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/repository/sequelize/ParticipationRepository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/participationRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/participationRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/playerRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/playerRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/participation/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/details.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/participation/edit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/edit.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/tournamentRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/tournamentRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/pages/participation/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/form.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/participation/list.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/list.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player/details.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/details.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/player/edit.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/edit.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/pages/player/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/form.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/pages/tournament/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/tournament/list.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/list.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +105,7 @@
       <workItem from="1607671205048" duration="3084000" />
       <workItem from="1608215097348" duration="10737000" />
       <workItem from="1608816486977" duration="66000" />
-      <workItem from="1609506997577" duration="57365000" />
+      <workItem from="1609506997577" duration="88966000" />
     </task>
     <task id="LOCAL-00001" summary="Trying to move everything to Node.js... Once more">
       <created>1606317189228</created>

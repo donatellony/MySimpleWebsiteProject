@@ -8,10 +8,11 @@
     </div>
     <div class="middleMainBlock">
         <p class="form-name">Wyświetl uczęstnika turnieju</p>
-        <form class="form" method="post" action="<%= formAction %>">
+        <form  class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
             <div class="form-group">
+                <input type="hidden" name="_id" value="<%= prtsp._id %>">
                 <label for="tournament">Turniej:</label>
-                <select id="tournament" name="tournamentId"
+                <select id="tournament" name="tournament_id"
                         required <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <% if(formMode !== 'showDetails'){ %>
                         <option value="" selected disabled hidden>--- Wybierz turniej ---</option>
@@ -20,41 +21,42 @@
                                 <%= (prtsp._id && tournament._id.toString() === prtsp.tournament._id.toString()) ? 'selected' : '' %>>
                         </option>
                         <% } %>
-                    <% //console.log('Participation: ' + (prtsp.tournament._id) + ' \nTournament: ' + (tournament._id));
-                    } else { %>
+                    <% } else { %>
                         <option value="<%= prtsp.tournament._id %>" label="<%= prtsp.tournament.name %>"></option>
                     <% } %>
                 </select>
-                <br><br>
+                <span class="error-text"></span><br>
                 <label for="player">Gracz:</label>
-                <select id="player" name="playerId" required <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
+                <select id="player" name="player_id" required <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <% if(formMode !== 'showDetails'){ %>
                         <option value="" selected disabled hidden>--- Wybierz gracza ---</option>
                         <% for (let i = 0; i < allPlayers.length; i++) { let player = allPlayers[i]; %>
                         <option value="<%= player._id %>" label="<%= player.name %>"
                                 <%= (prtsp._id && player._id.toString() === prtsp.player._id.toString()) ? 'selected' : '' %>></option>
                         <% } %>
-                    <% //console.log('Participation: ' + prtsp._id +'\nParticipationP: ' + (prtsp.player._id) + ' \nParticipationT: ' + (prtsp.tournament._id));
-                    } else { %>
+                    <% } else { %>
                         <option value="<%= prtsp.player._id %>" label="<%= prtsp.player.name %>"></option>
                     <% } %>
                 </select>
-                <br><br>
+                <span class="error-text"></span><br>
                 <label for="place">Miejsce:</label>
                 <input type="number" id="place" name="place"
                        value="<%= prtsp.playerPlace %>"<%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <br><br>
+                <span class="error-text"></span><br>
                 <label for="coinsWon">Wygrano monet:</label>
                 <input type="number" id="coinsWon" name="coinsWon"
                        value="<%= prtsp.coinsWon %>"<%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                <span class="error-text"></span><br>
             </div>
             <div class="form-buttons">
-                <input type="submit" value="Dodaj"
-                       class="form-button-submit" <%= (formMode === 'showDetails') ? 'hidden' : '' %>>
+                <input type="submit" value="<%=formMode === 'edit' ? 'Edytuj' : 'Dodaj' %>" class="form-button-submit" <%=formMode === 'showDetails' ? 'hidden' : ''%>>
+                <% if (formMode === 'showDetails') { %>
+                    <a href="/participations/edit/<%= prtsp._id %>" class="form-button-edit">Edytuj</a>
+                <% } %>
                 <a href="/participations" class="form-button-cancel">Anuluj</a>
             </div>
+            <span class="error-submit"></span>
         </form>
-
     </div>
     <div class="rightMainBlock">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo non nobis tempore, cumque asperiores
@@ -62,5 +64,5 @@
         quam.
     </div>
 </main>
-
+<script src="/js/validationParticipation.js"></script>
 <%- include('../../fragments/footer.ejs') %>

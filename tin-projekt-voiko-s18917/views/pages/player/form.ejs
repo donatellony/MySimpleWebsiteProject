@@ -8,7 +8,7 @@
     </div>
     <div class="middleMainBlock">
         <p class="form-name"><%=pageTitle%></p>
-        <form class="form" method="post" action="<%=formAction%>" onsubmit="return validateForm();">
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
             <div class="form-group">
                 <input type="hidden" name="_id" value="<%= player._id %>">
                 <label for="name">Pseudonim:</label>
@@ -31,9 +31,34 @@
                     <option value="vip-gracz" <%=player.role === 'vip-gracz' ? 'selected' : ''%>>VIP-Gracz</option>
                     <option value="moderator" <%=player.role === 'moderator' ? 'selected' : ''%>>Moderator</option>
                 </select>
+                <span class="error-text"></span>
             </div>
+            <%if(formMode==='showDetails' || formMode==='edit'){%>
+            <p class="form-name">Udział w meczach</p>
+            <table class="mainTable">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Miejsce</th>
+                    <th>Wygrano monet</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for (p of player.participation){%>
+                <tr>
+                    <td><a href="/tournaments/details/<%=p.tournament._id%>"><%=p.tournament.name%></a></td>
+                    <td><%=p.playerPlace%></td>
+                    <td><%=p.coinsWon%></td>
+                </tr>
+                <%}%>
+                </tbody>
+            </table>
+            <%}%>
             <div class="form-buttons">
-                <input type="submit" value="Dodaj" class="form-button-submit">
+                <input type="submit" value="<%=formMode === 'edit' ? 'Edytuj' : 'Dodaj' %>" class="form-button-submit" <%=formMode === 'showDetails' ? 'hidden' : ''%>>
+                <% if (formMode === 'showDetails') { %>
+                        <a href="/players/edit/<%= player._id %>" class="form-button-edit">Edytuj</a>
+                <% } %>
                 <a href="/players" class="form-button-cancel">Anuluj</a>
             </div>
             <span class="error-submit"></span>

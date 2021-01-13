@@ -8,10 +8,10 @@ function validateForm() {
     let isValid = true;
     resetErrors(inputs, errors, mainErrorText);
     const results = [
-        validateEmpty(inputs[1], errors[0]),
-        validatePositiveNumber(inputs[2], errors[1]),
-        validateEmpty(inputs[4], errors[3]),
-        validateEmpty(inputs[5], errors[4])
+        validateSelected(document.querySelectorAll('option:checked')[0], errors[0]),
+        validateSelected(document.querySelectorAll('option:checked')[1], errors[1]),
+        validatePositiveNumber(inputs[1], errors[2]),
+        validatePositiveNumber(inputs[2], errors[3])
     ];
     results.forEach(e => {
             if (!e) {

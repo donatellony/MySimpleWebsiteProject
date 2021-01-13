@@ -22,7 +22,7 @@ exports.showAddParticipationForm = (req, res, next) => {
                 prtsp: {},
                 pageTitle: 'Dodanie uczęstnictwa',
                 formMode: 'showAdd',
-                formAction: '',
+                formAction: '/participations/add',
                 allPlayers: allPlayers,
                 allTournaments: allTournaments,
                 navLocation: 'participation'
@@ -31,9 +31,6 @@ exports.showAddParticipationForm = (req, res, next) => {
 
 };
 
-// exports.showParticipationDetails = (req, res, next) => {
-//     res.render('pages/participation/details', {navLocation: 'participation'});
-// };
 exports.showParticipationDetails = (req, res, next) => {
     const participationId = req.params.participationId;
     ParticipationRepository.getParticipationById(participationId)
@@ -49,5 +46,53 @@ exports.showParticipationDetails = (req, res, next) => {
 };
 
 exports.showParticipationEdit = (req, res, next) => {
-    res.render('pages/participation/form', {navLocation: 'participation'});
+    const participationId = req.params.participationId;
+    let allPlayers, allTournaments;
+    PlayerRepository.getPlayers()
+        .then(pls => {
+            allPlayers = pls;
+            return TournamentRepository.getTournaments();
+        })
+        .then(trs => {
+            allTournaments = trs;
+            return ParticipationRepository.getParticipationById(participationId);
+        })
+        .then(prtsp => {
+            res.render('pages/participation/form', {
+                prtsp: prtsp,
+                allPlayers: allPlayers,
+                allTournaments: allTournaments,
+                formMode: 'edit',
+                pageTitle: 'Edycja uczęstnictwa',
+                btnLabel: 'Edytuj uczęstnictwo',
+                formAction: '/participations/edit',
+                navLocation: 'participation'
+            });
+        });
+};
+
+exports.addParticipation = (req, res, next) => {
+    const participationData = {...req.body};
+    ParticipationRepository.createParticipation(participationData)
+        .then(result => {
+            res.redirect('/participations');
+        });
+};
+
+exports.updateParticipation = (req, res, next) => {
+    const participationId = req.body._id;
+    const participationData = {...req.body};
+    // console.log('======DATA=====\n'+participationData.player_id + "\n" + participationData.tournament_id);
+    ParticipationRepository.updateParticipation(participationId, participationData)
+        .then(result => {
+            res.redirect('/participations');
+        });
+};
+
+exports.deleteParticipation = (req, res, next) => {
+    const participationId = req.params.participationId;
+    ParticipationRepository.deleteParticipation(participationId)
+        .then(() => {
+            res.redirect('/participations');
+        });
 };

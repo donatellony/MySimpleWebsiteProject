@@ -7,24 +7,61 @@
         quam.
     </div>
     <div class="middleMainBlock">
-        <p class="form-name"><%=pageTitle%></p>
-        <form class="form" method="post" action="<%= formAction %>">
+        <p class="form-name"><%= pageTitle %></p>
+        <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
             <div class="form-group">
+                <input type="hidden" name="_id" value="<%= tournament._id %>">
                 <label for="name">Nazwa meczu:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                <input type="text" id="name" name="name" required
+                       value="<%= tournament.name %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                <span class="error-text"></span><br>
                 <label for="fund">Fundusz nagród:</label>
-                <input type="number" id="fund" name="fund" required><br><br>
+                <input type="number" id="fund" name="fund" required
+                       value="<%= tournament.fund %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                <span class="error-text"></span><br>
                 <label for="sponsor">Sponsor:</label>
-                <input type="text" id="sponsor" name="sponsor"><br><br>
+                <input type="text" id="sponsor" name="sponsor"
+                       value="<%= tournament.sponsor %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                <span class="error-text"></span><br>
                 <label for="startDate">Data rozpoczęcia</label>
-                <input type="datetime-local" id="startDate" required><br><br>
+                <input type="datetime-local" id="startDate" name="startDate" required
+                       value="<%= tournament.startDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                <span class="error-text"></span><br>
                 <label for="endDate">Data ukończenia</label>
-                <input type="datetime-local" id="endDate">
+                <input type="datetime-local" id="endDate" name="endDate"
+                       value="<%= tournament.endDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                <span class="error-text"></span><br>
             </div>
+            <% if(formMode === 'showDetails' || formMode === 'edit'){ %>
+            <p class="form-name">Uczęstnicy turnieju</p>
+            <table class="mainTable">
+                <thead>
+                <tr>
+                    <th>Pseudonim</th>
+                    <th>Miejsce</th>
+                    <th>Wygrano monet</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for (p of tournament.participation){ %>
+                <tr>
+                    <td><a href="/players/details/<%= p.player._id %>"><%= p.player.name %></a></td>
+                    <td><%= p.playerPlace %></td>
+                    <td><%= p.coinsWon %></td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+            <% } %>
             <div class="form-buttons">
-                <input type="submit" value="Dodaj" class="form-button-submit">
+                <input type="submit" value="<%= formMode === 'edit' ? 'Edytuj' : 'Dodaj' %>"
+                       class="form-button-submit" <%= formMode === 'showDetails' ? 'hidden' : '' %>>
+                <% if (formMode === 'showDetails') { %>
+                    <a href="/tournaments/edit/<%= tournament._id %>" class="form-button-edit">Edytuj</a>
+                <% } %>
                 <a href="/tournaments" class="form-button-cancel">Anuluj</a>
             </div>
+            <span class="error-submit"></span>
         </form>
     </div>
     <div class="rightMainBlock">
@@ -33,4 +70,5 @@
         quam.
     </div>
 </main>
+<script src="/js/validationTournament.js"></script>
 <%- include('../../fragments/footer.ejs') %>

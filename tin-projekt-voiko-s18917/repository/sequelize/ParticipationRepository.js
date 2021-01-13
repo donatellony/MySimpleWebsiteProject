@@ -35,7 +35,6 @@ exports.getParticipationById = (participationId) => {
 
 exports.createParticipation = (data) => {
     console.log(JSON.stringify(data));
-
     return Participation.create({
         player_id: data.player_id,
         tournament_id: data.tournament_id,
@@ -44,13 +43,13 @@ exports.createParticipation = (data) => {
     });
 };
 
-exports.updateParticipation = (playerId, tournamentId, data) => {
-    return Participation.update(data, {where: {player_id: playerId, tournament_id: tournamentId}});
+exports.updateParticipation = (participationId, data) => {
+    return Participation.update(data, {where: {_id: participationId}});
 };
 
-exports.deleteParticipation = (playerId, tournamentId) => {
+exports.deleteParticipation = (participationId) => {
     return Participation.destroy({
-        where: {player_id: playerId, tournament_id: tournamentId}
+        where: {_id: participationId}
     });
 };
 

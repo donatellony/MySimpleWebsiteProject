@@ -8,7 +8,6 @@ var indexRouter = require('./routes/index');
 var playerRouter = require('./routes/playerRoute');
 var tournamentRouter = require('./routes/tournamentRoute');
 var participationRouter = require('./routes/participationRoute');
-// var playerApiRouter = require('./routes/api/PlayerApiRoute');
 
 var app = express();
 

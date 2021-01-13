@@ -34,3 +34,12 @@ function validateEmail(emailInput, error) {
     }
     return true;
 }
+
+function validateSelected(selectedOption, error){
+    const result = selectedOption.value;
+    if(!result) {
+        error.innerText = "Żadna opcja nie jest wybrana";
+        return false;
+    }
+    return true;
+}

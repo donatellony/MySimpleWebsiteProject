@@ -4,7 +4,11 @@ const tournamentController = require('../controllers/tournamentController');
 
 router.get('/', tournamentController.showTournamentList);
 router.get('/form', tournamentController.showAddTournamentForm);
-router.get('/details', tournamentController.showTournamentDetails);
-router.get('/edit', tournamentController.showTournamentEdit);
+router.get('/details/:tournamentId', tournamentController.showTournamentDetails);
+router.get('/edit/:tournamentId', tournamentController.showTournamentEdit);
+router.post('/add', tournamentController.addTournament);
+router.post('/edit', tournamentController.updateTournament);
+router.get('/delete/:tournamentId', tournamentController.deleteTournament);
+
 
 module.exports = router;
