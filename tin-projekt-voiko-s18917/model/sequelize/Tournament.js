@@ -10,7 +10,12 @@ const Tournament = sequelize.define('Tournament', {
     },
     name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            }
+        }
     },
     sponsor: {
         type: Sequelize.STRING,
@@ -18,15 +23,29 @@ const Tournament = sequelize.define('Tournament', {
     },
     startDate: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            }
+        }
     },
     endDate: {
         type: Sequelize.DATE,
-        allowNull: true
+        allowNull:true
     },
     fund: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Pole jest wymagane"
+            },
+            not:{
+              args: /-\d+/,
+              msg: "W tym kontekście wartość nie może być ujemna"
+            }
+        }
     }
 });
 

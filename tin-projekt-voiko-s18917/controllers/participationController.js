@@ -25,10 +25,10 @@ exports.showAddParticipationForm = (req, res, next) => {
                 formAction: '/participations/add',
                 allPlayers: allPlayers,
                 allTournaments: allTournaments,
-                navLocation: 'participation'
+                navLocation: 'participation',
+                validationErrors: []
             });
         });
-
 };
 
 exports.showParticipationDetails = (req, res, next) => {
@@ -40,7 +40,8 @@ exports.showParticipationDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły uczęstnictwa',
                 formAction: '',
-                navLocation: 'participation'
+                navLocation: 'participation',
+                validationErrors: []
             });
         });
 };
@@ -66,7 +67,8 @@ exports.showParticipationEdit = (req, res, next) => {
                 pageTitle: 'Edycja uczęstnictwa',
                 btnLabel: 'Edytuj uczęstnictwo',
                 formAction: '/participations/edit',
-                navLocation: 'participation'
+                navLocation: 'participation',
+                validationErrors: []
             });
         });
 };
@@ -76,7 +78,28 @@ exports.addParticipation = (req, res, next) => {
     ParticipationRepository.createParticipation(participationData)
         .then(result => {
             res.redirect('/participations');
-        });
+        })
+        .catch(err => {
+            let allPlayers, allTournaments;
+            PlayerRepository.getPlayers()
+                .then(pls => {
+                    allPlayers = pls;
+                    return TournamentRepository.getTournaments();
+                })
+                .then(trs => {
+                    allTournaments = trs;
+                    res.render('pages/participation/form', {
+                        prtsp: participationData,
+                        pageTitle: 'Dodanie uczęstnictwa',
+                        formMode: 'showAdd',
+                        formAction: '/participations/add',
+                        allPlayers: allPlayers,
+                        allTournaments: allTournaments,
+                        navLocation: 'participation',
+                        validationErrors: err.errors
+                    });
+                });
+        })
 };
 
 exports.updateParticipation = (req, res, next) => {
@@ -86,7 +109,29 @@ exports.updateParticipation = (req, res, next) => {
     ParticipationRepository.updateParticipation(participationId, participationData)
         .then(result => {
             res.redirect('/participations');
-        });
+        })
+        .catch(err => {
+            let allPlayers, allTournaments;
+            PlayerRepository.getPlayers()
+                .then(pls => {
+                    allPlayers = pls;
+                    return TournamentRepository.getTournaments();
+                })
+                .then(trs => {
+                    allTournaments = trs;
+                    res.render('pages/participation/form', {
+                        prtsp: participationData,
+                        allPlayers: allPlayers,
+                        allTournaments: allTournaments,
+                        formMode: 'edit',
+                        pageTitle: 'Edycja uczęstnictwa',
+                        btnLabel: 'Edytuj uczęstnictwo',
+                        formAction: '/participations/edit',
+                        navLocation: 'participation',
+                        validationErrors: err.errors
+                    });
+                });
+        })
 };
 
 exports.deleteParticipation = (req, res, next) => {

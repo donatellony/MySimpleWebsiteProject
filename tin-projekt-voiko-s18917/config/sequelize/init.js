@@ -49,7 +49,7 @@ module.exports = () => {
                         name: 'Eat now cry later',
                         sponsor: 'Burger Queen',
                         startDate: '2020-03-22',
-                        endDate: '2020-03-25',
+                        endDate: null,
                         fund: 75000
                     }
                 ]).then(() => {

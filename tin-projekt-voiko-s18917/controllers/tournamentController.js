@@ -14,7 +14,8 @@ exports.showAddTournamentForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj turniej',
         formAction: '/tournaments/add',
-        navLocation: 'tournament'
+        navLocation: 'tournament',
+        validationErrors: []
     });
 };
 
@@ -27,7 +28,8 @@ exports.showTournamentDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły turnieju',
                 formAction: '',
-                navLocation: 'tournament'
+                navLocation: 'tournament',
+                validationErrors: []
             });
         });
 };
@@ -42,18 +44,31 @@ exports.showTournamentEdit = (req, res, next) => {
                 pageTitle: 'Edycja turnieju',
                 btnLabel: 'Edytuj turniej',
                 formAction: '/tournaments/edit',
-                navLocation: 'tournament'
+                navLocation: 'tournament',
+                validationErrors: []
             });
         });
 };
 
 exports.addTournament = (req, res, next) => {
     const tournamentData = {...req.body};
-    console.log('STARTDATE: ' + tournamentData.startDate);
+    if(tournamentData.endDate === '')
+        tournamentData.endDate = null;
     TournamentRepository.createTournament(tournamentData)
         .then(result => {
             res.redirect('/tournaments');
-        });
+        })
+        .catch(err => {
+            res.render('pages/tournament/form', {
+                tournament: tournamentData,
+                pageTitle: 'Nowy turniej',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj turniej',
+                formAction: '/tournaments/add',
+                navLocation: 'tournament',
+                validationErrors: err.errors
+            });
+        })
 };
 
 exports.updateTournament = (req, res, next) => {
@@ -62,7 +77,18 @@ exports.updateTournament = (req, res, next) => {
     TournamentRepository.updateTournament(tournamentId, tournamentData)
         .then(result => {
             res.redirect('/tournaments');
-        });
+        })
+        .catch(err => {
+            res.render('pages/tournament/form', {
+                tournament: tournamentData,
+                formMode: 'edit',
+                pageTitle: 'Edycja turnieju',
+                btnLabel: 'Edytuj turniej',
+                formAction: '/tournaments/edit',
+                navLocation: 'tournament',
+                validationErrors: err.errors
+            });
+        })
 };
 
 exports.deleteTournament = (req, res, next) => {

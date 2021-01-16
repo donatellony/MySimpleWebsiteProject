@@ -20,11 +20,23 @@ const Participation = sequelize.define('Participation', {
     },
     playerPlace: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
+        validate: {
+            not:{
+                args: /-\d+/,
+                msg: "W tym kontekście wartość nie może być ujemna"
+            }
+        }
     },
     coinsWon: {
         type: Sequelize.INTEGER,
-        allowNull: true
+        allowNull: true,
+        validate: {
+            not:{
+                args: /-\d+/,
+                msg: "W tym kontekście wartość nie może być ujemna"
+            }
+        }
     }
 });
 

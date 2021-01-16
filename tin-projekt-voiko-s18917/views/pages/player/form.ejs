@@ -7,57 +7,84 @@
         quam.
     </div>
     <div class="middleMainBlock">
-        <p class="form-name"><%=pageTitle%></p>
-        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <p class="form-name"><%= pageTitle %></p>
+        <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
             <div class="form-group">
                 <input type="hidden" name="_id" value="<%= player._id %>">
                 <label for="name">Pseudonim:</label>
-                <input type="text" id="name" name="name" value="<%= player.name %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text"></span><br>
+                <input type="text" id="name" name="name" class="<%= validationErrors.find(e => e.path.includes('name')) ? 'error-input' : '' %>"
+                       value="<%= player.name %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('name'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('name')).message %>
+                    <% } %>
+                </span><br>
                 <label for="rating">Rating:</label>
-                <input type="number" id="rating" name="rating" value="<%= player.rating %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text"></span><br>
+                <input type="number" id="rating" name="rating" class="<%= validationErrors.find(e => e.path.includes('rating')) ? 'error-input' : '' %>"
+                       value="<%= player.rating %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('rating'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('rating')).message %>
+                    <% } %>
+                </span><br>
                 <label for="coins">Ilość monet:</label>
-                <input type="number" id="coins" name="coins" value="<%= player.coins %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text"></span><br>
+                <input type="number" id="coins" name="coins" class="<%= validationErrors.find(e => e.path.includes('coins')) ? 'error-input' : '' %>"
+                       value="<%= player.coins %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('coins'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('coins')).message %>
+                    <% } %>
+                </span><br>
                 <label for="mail">Email:</label>
-                <input type="text" id="email" name="email" value="<%= player.email %>"  <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
-                <span class="error-text"></span><br>
+                <input type="text" id="email" name="email" class="<%= validationErrors.find(e => e.path.includes('email')) ? 'error-input' : '' %>"
+                       value="<%= player.email %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %> required>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('email'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('email')).message %>
+                    <% } %>
+                </span><br>
                 <label for="role">Rola:</label>
-                <%let selected = false;%>
-                <select id="role" name="role" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                <% let selected = false; %>
+                <select id="role" name="role" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                        class="<%= validationErrors.find(e => e.path.includes('role')) ? 'error-input' : '' %>"
+                >
                     <option value="" selected disabled hidden>--- Wybierz rolę ---</option>
-                    <option value="gracz" <%=player.role === 'gracz' ? 'selected' : ''%>>Gracz</option>
-                    <option value="vip-gracz" <%=player.role === 'vip-gracz' ? 'selected' : ''%>>VIP-Gracz</option>
-                    <option value="moderator" <%=player.role === 'moderator' ? 'selected' : ''%>>Moderator</option>
+                    <option value="gracz" <%= player.role === 'gracz' ? 'selected' : '' %>>Gracz</option>
+                    <option value="vip-gracz" <%= player.role === 'vip-gracz' ? 'selected' : '' %>>VIP-Gracz</option>
+                    <option value="moderator" <%= player.role === 'moderator' ? 'selected' : '' %>>Moderator</option>
                 </select>
-                <span class="error-text"></span>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('role'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('role')).message %>
+                    <% } %>
+                </span>
             </div>
-            <%if(formMode==='showDetails' || formMode==='edit'){%>
-            <p class="form-name">Udział w meczach</p>
-            <table class="mainTable">
-                <thead>
-                <tr>
-                    <th>Nazwa</th>
-                    <th>Miejsce</th>
-                    <th>Wygrano monet</th>
-                </tr>
-                </thead>
-                <tbody>
-                <%for (p of player.participation){%>
-                <tr>
-                    <td><a href="/tournaments/details/<%=p.tournament._id%>"><%=p.tournament.name%></a></td>
-                    <td><%=p.playerPlace%></td>
-                    <td><%=p.coinsWon%></td>
-                </tr>
-                <%}%>
-                </tbody>
-            </table>
-            <%}%>
+            <% if(formMode === 'showDetails' || formMode === 'edit'){ %>
+                <p class="form-name">Udział w meczach</p>
+                <table class="mainTable">
+                    <thead>
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Miejsce</th>
+                        <th>Wygrano monet</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% for (p of player.participation){ %>
+                        <tr>
+                            <td><a href="/tournaments/details/<%= p.tournament._id %>"><%= p.tournament.name %></a></td>
+                            <td><%= p.playerPlace %></td>
+                            <td><%= p.coinsWon %></td>
+                        </tr>
+                    <% } %>
+                    </tbody>
+                </table>
+            <% } %>
             <div class="form-buttons">
-                <input type="submit" value="<%=formMode === 'edit' ? 'Edytuj' : 'Dodaj' %>" class="form-button-submit" <%=formMode === 'showDetails' ? 'hidden' : ''%>>
+                <input type="submit" value="<%= formMode === 'edit' ? 'Edytuj' : 'Dodaj' %>"
+                       class="form-button-submit" <%= formMode === 'showDetails' ? 'hidden' : '' %>>
                 <% if (formMode === 'showDetails') { %>
-                        <a href="/players/edit/<%= player._id %>" class="form-button-edit">Edytuj</a>
+                    <a href="/players/edit/<%= player._id %>" class="form-button-edit">Edytuj</a>
                 <% } %>
                 <a href="/players" class="form-button-cancel">Anuluj</a>
             </div>

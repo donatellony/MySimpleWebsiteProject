@@ -2,7 +2,7 @@ const inputs = document.querySelectorAll("input:not(.form-button-submit)"),
     errors = document.querySelectorAll(".error-text"),
     mainErrorText = document.querySelector(".error-submit");
 
-resetErrors(inputs, errors, mainErrorText);
+// resetErrors(inputs, errors, mainErrorText);
 
 function validateForm() {
     let isValid = true;

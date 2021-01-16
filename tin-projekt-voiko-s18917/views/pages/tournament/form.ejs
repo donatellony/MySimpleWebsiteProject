@@ -12,25 +12,45 @@
             <div class="form-group">
                 <input type="hidden" name="_id" value="<%= tournament._id %>">
                 <label for="name">Nazwa meczu:</label>
-                <input type="text" id="name" name="name" required
+                <input type="text" id="name" name="name" required class="<%= validationErrors.find(e => e.path.includes('name')) ? 'error-input' : '' %>"
                        value="<%= tournament.name %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('name'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('name')).message %>
+                    <% } %>
+                </span><br>
                 <label for="fund">Fundusz nagród:</label>
-                <input type="number" id="fund" name="fund" required
+                <input type="number" id="fund" name="fund" required class="<%= validationErrors.find(e => e.path.includes('fund')) ? 'error-input' : '' %>"
                        value="<%= tournament.fund %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('fund'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('fund')).message %>
+                    <% } %>
+                </span><br>
                 <label for="sponsor">Sponsor:</label>
-                <input type="text" id="sponsor" name="sponsor"
+                <input type="text" id="sponsor" name="sponsor" class="<%= validationErrors.find(e => e.path.includes('sponsor')) ? 'error-input' : '' %>"
                        value="<%= tournament.sponsor %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('sponsor'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('sponsor')).message %>
+                    <% } %>
+                </span><br>
                 <label for="startDate">Data rozpoczęcia</label>
-                <input type="datetime-local" id="startDate" name="startDate" required
+                <input type="datetime-local" id="startDate" name="startDate" required class="<%= validationErrors.find(e => e.path.includes('startDate')) ? 'error-input' : '' %>"
                        value="<%= tournament.startDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('startDate'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('startDate')).message %>
+                    <% } %>
+                </span><br>
                 <label for="endDate">Data ukończenia</label>
-                <input type="datetime-local" id="endDate" name="endDate"
+                <input type="datetime-local" id="endDate" name="endDate" class="<%= validationErrors.find(e => e.path.includes('endDate')) ? 'error-input' : '' %>"
                        value="<%= tournament.endDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('endDate'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('endDate')).message %>
+                    <% } %>
+                </span>
             </div>
             <% if(formMode === 'showDetails' || formMode === 'edit'){ %>
             <p class="form-name">Uczęstnicy turnieju</p>

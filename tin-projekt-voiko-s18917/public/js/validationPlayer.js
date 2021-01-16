@@ -6,15 +6,16 @@ const inputs = document.querySelectorAll("input:not(.form-button-submit)"),
     mainErrorText = document.querySelector(".error-submit");
 // selectedOptions = document.querySelectorAll('option:checked');
 // console.log(inputs);
-resetErrors(inputs, errors, mainErrorText);
+// resetErrors(inputs, errors, mainErrorText);
 
 function validatePseudonim(pseudonimInput, error) {
-    const isEmpty = validateEmpty(pseudonimInput, error);
-    if (isEmpty) {
+    const notEmpty = validateEmpty(pseudonimInput, error);
+    if (!notEmpty) {
         return false;
     }
     if (!/\w{3,20}/.test(pseudonimInput.value)) {
         error.innerText = "Pseudonim powinien składać się z 3-20 znaków,\n tylko liter lacińskiego alfabetu, cyfr i znaku '_'";
+        pseudonimInput.classList.add("error-input");
         return false;
     }
     error.innerText = "";

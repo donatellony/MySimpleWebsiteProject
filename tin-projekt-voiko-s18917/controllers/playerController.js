@@ -14,7 +14,8 @@ exports.showAddPlayerForm = (req, res, next) => {
         formMode: 'createNew',
         btnLabel: 'Dodaj gracza',
         formAction: '/players/add',
-        navLocation: 'player'
+        navLocation: 'player',
+        validationErrors: []
     });
 };
 
@@ -27,7 +28,8 @@ exports.showPlayerDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły gracza',
                 formAction: '',
-                navLocation: 'player'
+                navLocation: 'player',
+                validationErrors: []
             });
         });
 };
@@ -42,7 +44,8 @@ exports.showPlayerEdit = (req, res, next) => {
                 pageTitle: 'Edycja gracza',
                 btnLabel: 'Edytuj gracza',
                 formAction: '/players/edit',
-                navLocation: 'player'
+                navLocation: 'player',
+                validationErrors: []
             });
         });
 };
@@ -52,7 +55,24 @@ exports.addPlayer = (req, res, next) => {
     PlayerRepository.createPlayer(playerData)
         .then(result => {
             res.redirect('/players');
-        });
+        })
+        .catch(err => {
+            err.errors.forEach(e => {
+                if(e.path.includes('email') && e.type == 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+                console.log("MSG:" + e.message);
+            });
+            res.render('pages/player/form', {
+                player: playerData,
+                pageTitle: 'Nowy gracz',
+                formMode: 'createNew',
+                btnLabel: 'Dodaj gracza',
+                formAction: '/players/add',
+                navLocation: 'player',
+                validationErrors: err.errors
+            });
+    });
 };
 
 exports.updatePlayer = (req, res, next) => {
@@ -61,6 +81,22 @@ exports.updatePlayer = (req, res, next) => {
     PlayerRepository.updatePlayer(playerId, playerData)
         .then(result => {
             res.redirect('/players');
+        })
+        .catch(err => {
+            err.errors.forEach(e => {
+                if(e.path.includes('email') && e.type == 'unique violation') {
+                    e.message = "Podany adres email jest już używany";
+                }
+            });
+            res.render('pages/player/form', {
+                player: playerData,
+                formMode: 'edit',
+                pageTitle: 'Edycja gracza',
+                btnLabel: 'Edytuj gracza',
+                formAction: '/players/edit',
+                navLocation: 'player',
+                validationErrors: err.errors
+            });
         });
 };
 

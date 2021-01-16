@@ -8,11 +8,12 @@
     </div>
     <div class="middleMainBlock">
         <p class="form-name">Wyświetl uczęstnika turnieju</p>
-        <form  class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+        <form class="form" method="post" action="<%= formAction %>" novalidate onsubmit="return validateForm();">
             <div class="form-group">
                 <input type="hidden" name="_id" value="<%= prtsp._id %>">
                 <label for="tournament">Turniej:</label>
                 <select id="tournament" name="tournament_id"
+                        class="<%= validationErrors.find(e => e.path.includes('tournament_id')) ? 'error-input' : '' %>"
                         required <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
                     <% if(formMode !== 'showDetails'){ %>
                         <option value="" selected disabled hidden>--- Wybierz turniej ---</option>
@@ -25,9 +26,14 @@
                         <option value="<%= prtsp.tournament._id %>" label="<%= prtsp.tournament.name %>"></option>
                     <% } %>
                 </select>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('tournament_id'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('tournament_id')).message %>
+                    <% } %>
+                </span><br>
                 <label for="player">Gracz:</label>
-                <select id="player" name="player_id" required <%= (formMode === 'showDetails') ? 'disabled' : '' %> >
+                <select id="player" name="player_id" required <%= (formMode === 'showDetails') ? 'disabled' : '' %>
+                        class="<%= validationErrors.find(e => e.path.includes('player_id')) ? 'error-input' : '' %>">
                     <% if(formMode !== 'showDetails'){ %>
                         <option value="" selected disabled hidden>--- Wybierz gracza ---</option>
                         <% for (let i = 0; i < allPlayers.length; i++) { let player = allPlayers[i]; %>
@@ -38,18 +44,33 @@
                         <option value="<%= prtsp.player._id %>" label="<%= prtsp.player.name %>"></option>
                     <% } %>
                 </select>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('player_id'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('player_id')).message %>
+                    <% } %>
+                </span><br>
                 <label for="place">Miejsce:</label>
                 <input type="number" id="place" name="place"
+                       class="<%= validationErrors.find(e => e.path.includes('place')) ? 'error-input' : '' %>"
                        value="<%= prtsp.playerPlace %>"<%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('place'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('place')).message %>
+                    <% } %>
+                </span><br>
                 <label for="coinsWon">Wygrano monet:</label>
                 <input type="number" id="coinsWon" name="coinsWon"
+                       class="<%= validationErrors.find(e => e.path.includes('coinsWon')) ? 'error-input' : '' %>"
                        value="<%= prtsp.coinsWon %>"<%= (formMode === 'showDetails') ? 'disabled' : '' %>>
-                <span class="error-text"></span><br>
+                <span class="error-text">
+                    <% if (validationErrors.find(e => e.path.includes('coinsWon'))) { %>
+                        <%= validationErrors.find(e => e.path.includes('coinsWon')).message %>
+                    <% } %>
+                </span>
             </div>
             <div class="form-buttons">
-                <input type="submit" value="<%=formMode === 'edit' ? 'Edytuj' : 'Dodaj' %>" class="form-button-submit" <%=formMode === 'showDetails' ? 'hidden' : ''%>>
+                <input type="submit" value="<%= formMode === 'edit' ? 'Edytuj' : 'Dodaj' %>"
+                       class="form-button-submit" <%= formMode === 'showDetails' ? 'hidden' : '' %>>
                 <% if (formMode === 'showDetails') { %>
                     <a href="/participations/edit/<%= prtsp._id %>" class="form-button-edit">Edytuj</a>
                 <% } %>
