@@ -75,6 +75,10 @@ exports.showParticipationEdit = (req, res, next) => {
 
 exports.addParticipation = (req, res, next) => {
     const participationData = {...req.body};
+    if(participationData.playerPlace === '')
+        participationData.playerPlace = null;
+    if(participationData.coinsWon === '')
+        participationData.coinsWon = null;
     ParticipationRepository.createParticipation(participationData)
         .then(result => {
             res.redirect('/participations');
@@ -105,6 +109,10 @@ exports.addParticipation = (req, res, next) => {
 exports.updateParticipation = (req, res, next) => {
     const participationId = req.body._id;
     const participationData = {...req.body};
+    if(participationData.playerPlace === '')
+        participationData.playerPlace = null;
+    if(participationData.coinsWon === '')
+        participationData.coinsWon = null;
     // console.log('======DATA=====\n'+participationData.player_id + "\n" + participationData.tournament_id);
     ParticipationRepository.updateParticipation(participationId, participationData)
         .then(result => {

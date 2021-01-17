@@ -44,9 +44,11 @@ app.use(function (err, req, res, next) {
 });
 
 const sequelizeInit = require('./config/sequelize/init');
-sequelizeInit();
-    // .catch(err => {
-    //     console.log(err);
-    // });
+try {
+    sequelizeInit()
+} catch (err) {
+    console.log(err);
+}
+;
 
 module.exports = app;

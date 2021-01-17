@@ -37,7 +37,7 @@
                 </span><br>
                 <label for="startDate">Data rozpoczęcia</label>
                 <input type="datetime-local" id="startDate" name="startDate" required class="<%= validationErrors.find(e => e.path.includes('startDate')) ? 'error-input' : '' %>"
-                       value="<%= tournament.startDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                       value="<%= tournament.startDate ? tournament.startDate.toISOString().split('.')[0] : '' %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
                 <span class="error-text">
                     <% if (validationErrors.find(e => e.path.includes('startDate'))) { %>
                         <%= validationErrors.find(e => e.path.includes('startDate')).message %>
@@ -45,7 +45,7 @@
                 </span><br>
                 <label for="endDate">Data ukończenia</label>
                 <input type="datetime-local" id="endDate" name="endDate" class="<%= validationErrors.find(e => e.path.includes('endDate')) ? 'error-input' : '' %>"
-                       value="<%= tournament.endDate %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
+                       value="<%= tournament.endDate ? tournament.endDate.toISOString().split('.')[0] : '' %>" <%= (formMode === 'showDetails') ? 'disabled' : '' %>>
                 <span class="error-text">
                     <% if (validationErrors.find(e => e.path.includes('endDate'))) { %>
                         <%= validationErrors.find(e => e.path.includes('endDate')).message %>
@@ -90,5 +90,5 @@
         quam.
     </div>
 </main>
-<script src="/js/validationTournament.js"></script>
+<!--<script src="/js/validationTournament.js"></script>-->
 <%- include('../../fragments/footer.ejs') %>

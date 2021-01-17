@@ -74,6 +74,8 @@ exports.addTournament = (req, res, next) => {
 exports.updateTournament = (req, res, next) => {
     const tournamentId = req.body._id;
     const tournamentData = {...req.body};
+    if(tournamentData.endDate === '')
+        tournamentData.endDate = null;
     TournamentRepository.updateTournament(tournamentId, tournamentData)
         .then(result => {
             res.redirect('/tournaments');

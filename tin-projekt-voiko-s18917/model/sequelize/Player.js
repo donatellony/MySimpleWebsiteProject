@@ -1,6 +1,11 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
+export const minRating = 0,
+    maxRating = 99999,
+    minCoins = 0,
+    maxCoins = 999999
+
 const Player = sequelize.define('Player', {
     _id: {
         type: Sequelize.INTEGER,
@@ -31,6 +36,14 @@ const Player = sequelize.define('Player', {
             not:{
                 args: /-\d+/,
                 msg: "W tym kontekście wartość nie może być ujemna"
+            },
+            min: {
+                args: minRating,
+                msg: `Wartość pola powinna być od ${minRating} do ${maxRating}`
+            },
+            max: {
+                args: maxRating,
+                msg: `Wartość pola powinna być od ${minRating} do ${maxRating}`
             }
         }
     },
@@ -44,6 +57,14 @@ const Player = sequelize.define('Player', {
             not:{
                 args: /-\d+/,
                 msg: "W tym kontekście wartość nie może być ujemna"
+            },
+            min: {
+                args: minCoins,
+                msg: `Wartość pola powinna być od ${minCoins} do ${maxCoins}`
+            },
+            max: {
+                args: maxCoins,
+                msg: `Wartość pola powinna być od ${minCoins} do ${maxCoins}`
             }
         }
     },

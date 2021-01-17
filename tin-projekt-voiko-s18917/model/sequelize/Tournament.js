@@ -1,6 +1,10 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
+export const maxFund = 1000000,
+    minFund = 5000;
+let startdate;
+
 const Tournament = sequelize.define('Tournament', {
     _id: {
         type: Sequelize.INTEGER,
@@ -14,7 +18,7 @@ const Tournament = sequelize.define('Tournament', {
         validate: {
             notEmpty: {
                 msg: "Pole jest wymagane"
-            }
+            },
         }
     },
     sponsor: {
@@ -32,7 +36,13 @@ const Tournament = sequelize.define('Tournament', {
     },
     endDate: {
         type: Sequelize.DATE,
-        allowNull:true
+        allowNull:true,
+        validate:{
+            isAfter: {
+                args: this.startDate.value,
+                msg: "Data okończenia tuenieju jest wcześniejsza od rozpoczęcia"
+            }
+        }
     },
     fund: {
         type: Sequelize.INTEGER,
@@ -44,6 +54,14 @@ const Tournament = sequelize.define('Tournament', {
             not:{
               args: /-\d+/,
               msg: "W tym kontekście wartość nie może być ujemna"
+            },
+            min:{
+                args: minFund,
+                msg: `Wartość pola powinna być od ${minFund} do ${maxFund}`
+            },
+            max:{
+                args: maxFund,
+                msg: `Wartość pola powinna być od ${minFund} do ${maxFund}`
             }
         }
     }
