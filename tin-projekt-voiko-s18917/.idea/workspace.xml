@@ -21,18 +21,19 @@
   <component name="ChangeListManager">
     <list default="true" id="ae19c379-4a18-48ac-99a7-75b684c4b75a" name="Default Changelist" comment="Adding Backend using sequelize">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/ParticipationAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/PlayerAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/TournamentAPI.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/config/sequelize/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/sequelize/init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/participationController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/participationController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/tournamentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/tournamentController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/playerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/playerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/sequelize/Participation.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/sequelize/Participation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/sequelize/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/sequelize/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/sequelize/Tournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/model/sequelize/Tournament.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/validationCommon.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationCommon.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/validationParticipation.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationParticipation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/validationPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/validationTournament.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/validationTournament.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/pages/participation/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/participation/form.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repository/sequelize/ParticipationRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/repository/sequelize/ParticipationRepository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/pages/player/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/player/form.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/pages/tournament/form.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/tournament/form.ejs" afterDir="false" />
     </list>
@@ -68,6 +69,8 @@
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.19" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="ts.external.directory.path" value="D:\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -103,7 +106,7 @@
       <workItem from="1608215097348" duration="10737000" />
       <workItem from="1608816486977" duration="66000" />
       <workItem from="1609506997577" duration="91269000" />
-      <workItem from="1610617457906" duration="41836000" />
+      <workItem from="1610617457906" duration="48945000" />
     </task>
     <task id="LOCAL-00001" summary="Trying to move everything to Node.js... Once more">
       <created>1606317189228</created>
@@ -152,6 +155,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606303097394" />
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1610966273132">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="707" y="375" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040@0.0.1920.1040" timestamp="1610966273132" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1608816549363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -172,9 +179,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1874" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608496004273" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1610966160904">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1610966160904" />
     <state x="1032" y="253" key="Vcs.Push.Dialog.v2" timestamp="1607355087468">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1032" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607355087468" />
+    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1610966371582">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="119" width="585" height="801" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610966371582" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1610966118516">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1610966118516" />
   </component>
 </project>

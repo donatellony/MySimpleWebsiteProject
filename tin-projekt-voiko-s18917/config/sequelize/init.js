@@ -24,7 +24,7 @@ module.exports = () => {
     sequelize.sync({force: true})
         .then(() => Player.findAll())
         .then(players => {
-            console.log(players);
+            // console.log(players);
                 if (!players || players.length === 0) {
                     return Player.bulkCreate([
                         {name: 'Jan', rating: 1962, coins: 415, email: 'jan.kowalski@acme.com', role: 'gracz'},

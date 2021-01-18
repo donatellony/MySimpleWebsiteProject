@@ -1,9 +1,10 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
-export const maxFund = 1000000,
+const maxFund = 1000000,
     minFund = 5000;
-let startdate;
+
+// module.exports = {maxFund, minFund};
 
 const Tournament = sequelize.define('Tournament', {
     _id: {
@@ -37,12 +38,12 @@ const Tournament = sequelize.define('Tournament', {
     endDate: {
         type: Sequelize.DATE,
         allowNull:true,
-        validate:{
-            isAfter: {
-                args: this.startDate.value,
-                msg: "Data okończenia tuenieju jest wcześniejsza od rozpoczęcia"
-            }
-        }
+        // validate:{
+        //     isAfter: {
+        //         args: this.startDate.value,
+        //         msg: "Data okończenia tuenieju jest wcześniejsza od rozpoczęcia"
+        //     }
+        // }
     },
     fund: {
         type: Sequelize.INTEGER,

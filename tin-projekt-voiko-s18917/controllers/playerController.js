@@ -61,7 +61,7 @@ exports.addPlayer = (req, res, next) => {
                 if(e.path.includes('email') && e.type == 'unique violation') {
                     e.message = "Podany adres email jest już używany";
                 }
-                console.log("MSG:" + e.message);
+                // console.log("MSG:" + e.message);
             });
             res.render('pages/player/form', {
                 player: playerData,

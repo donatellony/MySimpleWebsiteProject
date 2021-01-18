@@ -1,5 +1,10 @@
 //
-import {minRating, maxRating, minCoins, maxCoins} from "../../model/sequelize/Player";
+// import { createRequire } from 'module';
+// const require = createRequire(import.meta.url);
+//
+// const playerData = require('../../model/sequelize/Player')
+
+// import {minRating,maxRating,minCoins,maxCoins} from "../../model/sequelize/Player";
 
 const inputs = document.querySelectorAll("input:not(.form-button-submit)"),
     errors = document.querySelectorAll(".error-text"),
@@ -28,8 +33,8 @@ function validateForm() {
     resetErrors(inputs, errors, mainErrorText, selects);
     const results = [
         validatePseudonim(inputs[1], errors[0]),
-        validatePositiveNumber(inputs[2], errors[1],minRating,maxRating),
-        validatePositiveNumber(inputs[3], errors[2], minCoins, maxCoins),
+        validatePositiveNumber(inputs[2], errors[1], 0, 99999),
+        validatePositiveNumber(inputs[3], errors[2], 0, 999999),
         validateEmail(inputs[4], errors[3]),
         validateSelected(document.querySelectorAll('option:checked')[0], errors[4], selects[0])
     ];

@@ -34,7 +34,7 @@ exports.getParticipationById = (participationId) => {
 };
 
 exports.createParticipation = (data) => {
-    console.log(JSON.stringify(data));
+    // console.log(JSON.stringify(data));
     return Participation.create({
         player_id: data.player_id,
         tournament_id: data.tournament_id,

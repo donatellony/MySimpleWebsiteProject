@@ -1,10 +1,12 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
-export const minPlayerPlace = 1,
+const minPlayerPlace = 1,
     maxPlayerPlace = 200,
     minCoinsWon = 0,
     maxCoinsWon = 100000;
+
+// module.exports = {minPlayerPlace, maxPlayerPlace, minCoinsWon, maxCoinsWon};
 
 const Participation = sequelize.define('Participation', {
     _id: {
@@ -40,11 +42,11 @@ const Participation = sequelize.define('Participation', {
                 msg: "W tym kontekście wartość nie może być ujemna"
             },
             min: {
-                args: minPlayerPlace,
+                args: [minPlayerPlace],
                 msg: `Wartość pola powinna być od ${minPlayerPlace} do ${maxPlayerPlace}`
             },
             max: {
-                args: maxPlayerPlace,
+                args: [maxPlayerPlace],
                 msg: `Wartość pola powinna być od ${minPlayerPlace} do ${maxPlayerPlace}`
             }
         }
@@ -58,11 +60,11 @@ const Participation = sequelize.define('Participation', {
                 msg: "W tym kontekście wartość nie może być ujemna"
             },
             min: {
-                args: minCoinsWon,
+                args: [minCoinsWon],
                 msg: `Wartość pola powinna być od ${minCoinsWon} do ${maxCoinsWon}`
             },
             max: {
-                args: maxCoinsWon,
+                args: [maxCoinsWon],
                 msg: `Wartość pola powinna być od ${minCoinsWon} do ${maxCoinsWon}`
             }
         }
